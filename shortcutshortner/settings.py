@@ -11,19 +11,22 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = config("SECRET_KEY", default=get_random_secret_key(), cast=str)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'kd7#5m2(@i6^0p-p#^j06o3sj3b(*#*il@v8#_1$63boh#t%e1'
+SECRET_KEY = config("SECRET_KEY", default=get_random_secret_key(), cast=str)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG',cast = bool)
 
 ALLOWED_HOSTS = []
 
