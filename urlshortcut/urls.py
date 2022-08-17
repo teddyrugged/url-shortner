@@ -3,5 +3,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('firstpage/', views.new_page)
+    path('', views.index)
 ]
