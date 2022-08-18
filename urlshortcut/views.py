@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "frontend.html")
 
 
 def create(request):
@@ -12,7 +12,7 @@ def create(request):
         uid = str(uuid.uuid4())[:7]
         new_url = url(link=link, uuid=uid)
         new_url.save()
-        response = HttpResponse(uid)
+        return HttpResponse(uid)
 
 
 # Create your views here.
